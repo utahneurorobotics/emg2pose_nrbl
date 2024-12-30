@@ -1,5 +1,7 @@
 # emg2pose
 
+[ [`Paper`](https://arxiv.org/abs/2412.02725) ] [ [`Dataset`](https://fb-ctrl-oss.s3.amazonaws.com/emg2pose/emg2pose_dataset.tar) ] [ [`Blog`](https://ai.meta.com/blog/open-sourcing-surface-electromyography-datasets-neurips-2024/) ] [ [`BibTeX`](#citing-emg2pose) ]
+
 A dataset of Surface electromyography (sEMG) recordings paired with ground-truth, motion-capture recordings of the hands. Data loading, baseline model training, and baseline model evaluation code are provided.
 
 <p align="center">
@@ -186,3 +188,13 @@ emg2pose is CC-BY-NC-SA-4.0 licensed, as found in the LICENSE file.
 emg2pose is also licensed subject to the licenses of its code dependencies.
 
 UmeTrack is licensed under Attribution-NonCommercial 4.0 International, as found in the emg2pose/UmeTrack/LICENSE and [GitHub](https://github.com/facebookresearch/UmeTrack/blob/main/LICENSE).
+
+## Citing emg2pose
+
+```
+@inproceedings{salteremg2pose,
+  title={emg2pose: A Large and Diverse Benchmark for Surface Electromyographic Hand Pose Estimation},
+  author={Salter, Sasha and Warren, Richard and Schlager, Collin and Spurr, Adrian and Han, Shangchen and Bhasin, Rohin and Cai, Yujun and Walkington, Peter and Bolarinwa, Anuoluwapo and Wang, Robert and others},
+  booktitle={The Thirty-eight Conference on Neural Information Processing Systems Datasets and Benchmarks Track}
+}
+```
