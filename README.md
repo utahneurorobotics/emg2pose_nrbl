@@ -192,13 +192,9 @@ UmeTrack is licensed under Attribution-NonCommercial 4.0 International, as found
 ## Citing emg2pose
 
 ```
-@misc{salter2024emg2poselargediversebenchmark,
-      title={emg2pose: A Large and Diverse Benchmark for Surface Electromyographic Hand Pose Estimation}, 
-      author={Sasha Salter and Richard Warren and Collin Schlager and Adrian Spurr and Shangchen Han and Rohin Bhasin and Yujun Cai and Peter Walkington and Anuoluwapo Bolarinwa and Robert Wang and Nathan Danielson and Josh Merel and Eftychios Pnevmatikakis and Jesse Marshall},
-      year={2024},
-      eprint={2412.02725},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2412.02725}, 
+@inproceedings{salteremg2pose,
+  title={emg2pose: A Large and Diverse Benchmark for Surface Electromyographic Hand Pose Estimation},
+  author={Salter, Sasha and Warren, Richard and Schlager, Collin and Spurr, Adrian and Han, Shangchen and Bhasin, Rohin and Cai, Yujun and Walkington, Peter and Bolarinwa, Anuoluwapo and Wang, Robert and others},
+  booktitle={The Thirty-eight Conference on Neural Information Processing Systems Datasets and Benchmarks Track}
 }
 ```
