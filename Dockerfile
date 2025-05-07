@@ -21,9 +21,12 @@ ENV PATH="/opt/conda/bin:$PATH"
 RUN echo "source activate emg2pose" > ~/.bashrc
 RUN pip install -e .
 
-RUN /opt/conda/envs/emg2pose/bin/python install -y  jupyterlab
-RUN /opt/conda/envs/emg2pose/bin/python install -y ipykernel
-RUN /opt/conda/envs/emg2pose/bin/python -m ipykernel install --user --name emg2pose --display-name "Python (emg2pose)"
+# Install JupyterLab and ipykernel in the emg2pose environment
+RUN /opt/conda/bin/conda install -n emg2pose -y jupyterlab ipykernel
+RUN /opt/conda/bin/conda clean -afy
+
+# Register the Conda environment as a Jupyter kernel
+RUN /opt/conda/bin/conda run -n emg2pose python -m ipykernel install --user --name emg2pose --display-name "Python (emg2pose)"
 
 
 # Copy the rest of the application code
@@ -32,7 +35,7 @@ COPY . .
 # Expose a port (if your application serves on a specific port)
 EXPOSE 8000
 EXPOSE 8888
-CMD ["bash", "-c", "jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root & bash"]
+CMD ["bash", "-c", "/opt/conda/bin/conda run -n emg2pose jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token='' & bash"]
 
 # Define the default command
 #CMD ["python", "-m", "emg2pose.train"] 
