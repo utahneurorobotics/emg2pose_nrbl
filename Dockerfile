@@ -18,16 +18,29 @@ RUN apt-get update && apt-get install -y curl && \
 
 # Activate the environment and install the package
 ENV PATH="/opt/conda/bin:$PATH"
-RUN echo "source activate emg2pose" > ~/.bashrc
-RUN pip install -e .
+
+#RUN echo "source activate emg2pose" > ~/.bashrc
+
 
 # Install JupyterLab and ipykernel in the emg2pose environment
 RUN /opt/conda/bin/conda install -n emg2pose -y jupyterlab ipykernel
 RUN /opt/conda/bin/conda clean -afy
 
 # Register the Conda environment as a Jupyter kernel
-RUN /opt/conda/bin/conda run -n emg2pose python -m ipykernel install --user --name emg2pose --display-name "Python (emg2pose)"
 
+
+# RUN /opt/conda/bin/conda run -n emg2pose pip install -e .
+RUN /opt/conda/bin/conda run -n emg2pose python -m ipykernel install --user --name emg2pose --display-name "Python (emg2pose)"
+RUN ls -l /app
+RUN /opt/conda/bin/conda run -n emg2pose python -c "import sys; print('Python executable:', sys.executable)"
+ENV PYTHONPATH=":/app"
+RUN /bin/bash -c "source /opt/conda/bin/activate emg2pose && \
+    cd /app && \
+    pip install --target /opt/conda/envs/emg2pose/lib/python3.10/site-packages -e .&&\ 
+    python -c 'import site; print(site.getsitepackages())'"
+    
+
+RUN /opt/conda/bin/conda run -n emg2pose python -c "import emg2pose; print('emg2pose installed successfully')"
 
 # Copy the rest of the application code
 COPY . .
