@@ -2,6 +2,8 @@
 
 [ [`Paper`](https://arxiv.org/abs/2412.02725) ] [ [`Dataset`](https://fb-ctrl-oss.s3.amazonaws.com/emg2pose/emg2pose_dataset.tar) ] [ [`Blog`](https://ai.meta.com/blog/open-sourcing-surface-electromyography-datasets-neurips-2024/) ] [ [`BibTeX`](#citing-emg2pose) ]
 
+TO RUN: docker run --rm -it -v emg2pose-notebooks:/app/nonvolatile -p 8000:8000/tcp -p 8888:8888/tcp emg2posenrbl:latest
+
 A dataset of Surface electromyography (sEMG) recordings paired with ground-truth, motion-capture recordings of the hands. Data loading, baseline model training, and baseline model evaluation code are provided.
 
 <p align="center">
